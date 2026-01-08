@@ -1,32 +1,11 @@
-<?php
-// discord.craftdan.net/index.php
-$invite_code = "ваш_код_приглашения";
-$api_url = "https://discord.com/api/v9/invites/{$invite_code}?with_counts=true";
-
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $api_url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, ['Accept: application/json']);
-$response = curl_exec($ch);
-curl_close($ch);
-
-$data = json_decode($response, true);
-
-$member_count = $data['approximate_member_count'] ?? '46';
-$description = "Присоединяйтесь к сообществу «© CraftDan» в Discord. Весело проводите время с участниками сообщества, которых уже {$member_count} чел.";
-
-// Отдаём HTML с Open Graph тегами
-?>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta property="og:title" content="CraftDan Discord" />
-    <meta property="og:description" content="<?php echo $description; ?>" />
-    <meta property="og:image" content="https://cdn.discordapp.com/icons/<?php echo $data['guild']['id']; ?>/<?php echo $data['guild']['icon']; ?>.png?size=512" />
-    <meta property="og:url" content="https://discord.craftdan.net/" />
-    <meta http-equiv="refresh" content="0;url=https://discord.gg/<?php echo $invite_code; ?>">
+    <meta charset="UTF-8">
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="Ознакомьтесь с сообществом «⌬ AkLandCraft» в Discord. Весело проводите время с участниками сообщества, которых уже 30 чел., и пользуйтесь бесплатным голосовым и текстовым чатом." />
+    <script>location.href='https://discord.gg/bFpV43eGSz'</script>
+    <title>Присоединяйтесь к сообществу «⌬ AkLandCraft »</title>
 </head>
-<body>
-    Redirecting...
-</body>
+<body></body>
 </html>
